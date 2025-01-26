@@ -186,22 +186,52 @@ footer a:hover {
 }
 
 /* Responsive Design */
+/* Mobile Devices */
 @media (max-width: 768px) {
-    .profile-img {
-        width: 150px;
-        height: 150px;
+    /* Adjust font sizes, layout, or any other styles for mobile */
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        flex-direction: column;
     }
 
-    h1 {
-        font-size: 2.5rem;
+    .button {
+        width: 100%;
+        margin: 10px 0;
     }
 
-    p {
-        font-size: 1.2rem;
+    .image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+    /* Adjust layout for tablets */
+    .header {
+        text-align: center;
     }
 
-    .cta-btn {
-        font-size: 1rem;
-        padding: 12px 25px;
+    .sidebar {
+        display: none;
+    }
+
+    .content {
+        width: 90%;
+    }
+}
+
+/* Large Screens */
+@media (min-width: 1200px) {
+    /* Adjust for larger screens */
+    .header {
+        font-size: 24px;
+    }
+
+    .main {
+        padding: 50px;
     }
 }
