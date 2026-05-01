@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khaleel Abdallah — Developer</title>
+    <title>Khaleel Abdallah — Developer Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
 
-<!-- Custom Cursor -->
+<!-- Custom Cursor Elements -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-trail" id="cursorTrail"></div>
 
-<!-- Floating Nav -->
+<!-- Main Navigation -->
 <nav class="nav" id="nav">
     <div class="nav-container">
         <div class="nav-logo">KA<span>.</span></div>
@@ -25,82 +25,93 @@
         </button>
 
         <ul class="nav-links" id="navLinks">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#hero" class="nav-item">Home</a></li>
+            <li><a href="#about" class="nav-item">About</a></li>
+            <li><a href="#skills" class="nav-item">Skills</a></li>
+            <li><a href="#projects" class="nav-item">Projects</a></li>
+            <li><a href="#contact" class="nav-item">Contact</a></li>
         </ul>
     </div>
 </nav>
 
-<main>
+<main class="smooth-scroll-wrapper">
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <canvas class="hero-canvas" id="heroCanvas"></canvas>
         <div class="hero-bg-text">DEV</div>
 
         <div class="hero-content">
-            <div class="hero-tag">14-year-old developer</div>
+            <div class="hero-tag-wrapper">
+                <span class="hero-tag">14-year-old developer</span>
+            </div>
             <h1 class="hero-title">
                 <span class="line">Khaleel</span>
                 <span class="line accent-line">Abdallah</span>
             </h1>
-            <p class="hero-sub">Backend & Frontend Developer · Abuja, Nigeria</p>
+            <p class="hero-sub">Full-Stack Developer & AI Enthusiast · Abuja, Nigeria</p>
             <div class="hero-cta">
-                <a href="#projects" class="btn-primary">View My Work</a>
+                <a href="#projects" class="btn-primary">
+                    <span>View My Work</span>
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3.5 11.5L11.5 3.5M11.5 3.5H3.5M11.5 3.5V11.5" stroke="currentColor" stroke-width="2"/></svg>
+                </a>
                 <a href="#contact" class="btn-ghost">Get In Touch</a>
             </div>
         </div>
 
         <div class="hero-scroll-hint">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
         </div>
 
+        <!-- Animated Tech Cards -->
         <div class="floating-cards">
-            <div class="float-card fc1">Node.js</div>
-            <div class="float-card fc2">Python</div>
-            <div class="float-card fc3">Kotlin</div>
-            <div class="float-card fc4">React</div>
-            <div class="float-card fc5">Dart</div>
+            <div class="float-card fc1" data-speed="2">Node.js</div>
+            <div class="float-card fc2" data-speed="-1">Python</div>
+            <div class="float-card fc3" data-speed="1.5">Kotlin</div>
+            <div class="float-card fc4" data-speed="-2">React TSX</div>
+            <div class="float-card fc5" data-speed="3">Mistral AI</div>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about section-padding" id="about">
         <div class="section-wrap">
-            <div class="section-label">001 — About</div>
+            <div class="section-header">
+                <span class="section-label">01 // Identity</span>
+                <h2 class="section-title">A Developer with<br><span class="text-gradient">Resilience.</span></h2>
+            </div>
+            
             <div class="about-grid">
                 <div class="about-left">
-                    <div class="about-photo-wrap">
-                        <div class="photo-frame">
+                    <div class="photo-container">
+                        <div class="photo-wrapper">
                             <img src="Images/me really.jpg" alt="Khaleel Abdallah" class="about-photo">
-                            <div class="photo-border"></div>
+                            <div class="photo-overlay"></div>
                         </div>
-                        <div class="photo-tag">Available for work ✦</div>
+                        <div class="experience-badge">
+                            <span class="badge-num">2+</span>
+                            <span class="badge-text">Years of<br>Coding</span>
+                        </div>
                     </div>
                 </div>
                 <div class="about-right">
-                    <h2 class="section-title">Who Am I?</h2>
+                    <p class="about-lead">I turn complex problems into elegant digital solutions.</p>
                     <p class="about-text">
-                        👋 At 14, I've built a serious passion for creating digital experiences that matter. I'm a full-stack developer based in Nigeria — proficient across frontend, backend, mobile, and desktop.
+                        At 14, I've cultivated a deep passion for full-stack development. Navigating life as a sickle cell patient has ingrained a unique sense of resilience in me—a drive I bring to debugging every line of code and architecting AI-powered systems.
                     </p>
                     <p class="about-text">
-                        Being a sickle cell patient has taught me resilience, and I channel that strength into every line of code I write. When I'm not at the keyboard, I'm on the pitch playing football or deep in a match of CODM.
+                        Whether it's optimizing latency in voice-based AI or competing in a high-stakes match of CODM, I am always pushing for peak performance.
                     </p>
                     <div class="about-stats">
-                        <div class="stat">
-                            <span class="stat-num" data-count="8">8</span>
-                            <span class="stat-label">Techs</span>
+                        <div class="stat-item">
+                            <div class="stat-num">08</div>
+                            <div class="stat-name">Technologies</div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-num" data-count="5">5+</span>
-                            <span class="stat-label">Projects</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-num" data-count="2">2</span>
-                            <span class="stat-label">Years Coding</span>
+                        <div class="stat-item">
+                            <div class="stat-num">05+</div>
+                            <div class="stat-name">Live Projects</div>
                         </div>
                     </div>
                 </div>
@@ -111,28 +122,38 @@
     <!-- Skills Section -->
     <section class="skills section-padding" id="skills">
         <div class="section-wrap">
-            <div class="section-label">002 — Skills</div>
-            <h2 class="section-title">What I Know</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">🌐</div>
-                    <h3>Frontend</h3>
-                    <p>React TSX, HTML, CSS, JavaScript — building pixel-perfect, responsive UIs.</p>
+            <div class="section-header">
+                <span class="section-label">02 // Expertise</span>
+                <h2 class="section-title">My Tech Stack</h2>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3 class="cat-title">Frontend</h3>
+                    <ul class="skill-list">
+                        <li>React (TSX)</li>
+                        <li>Tailwind CSS</li>
+                        <li>Modern JS/TS</li>
+                        <li>Responsive Design</li>
+                    </ul>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">⚙️</div>
-                    <h3>Backend</h3>
-                    <p>Node.js, Python, PHP — integrating Mistral AI and real-time voice APIs.</p>
+                <div class="skill-category">
+                    <h3 class="cat-title">Backend & AI</h3>
+                    <ul class="skill-list">
+                        <li>Node.js / Express</li>
+                        <li>Python / PHP</li>
+                        <li>Mistral AI Integration</li>
+                        <li>Deepgram Aura</li>
+                    </ul>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">📱</div>
-                    <h3>Mobile</h3>
-                    <p>Kotlin & Dart — creating native Android and cross-platform apps.</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🗄️</div>
-                    <h3>Database</h3>
-                    <p>Structuring and managing data for complex web and app projects.</p>
+                <div class="skill-category">
+                    <h3 class="cat-title">Mobile & Desktop</h3>
+                    <ul class="skill-list">
+                        <li>Kotlin (Android)</li>
+                        <li>Dart / Flutter</li>
+                        <li>API Engineering</li>
+                        <li>Architecture Design</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -141,29 +162,35 @@
     <!-- Projects Section -->
     <section class="projects section-padding" id="projects">
         <div class="section-wrap">
-            <div class="section-label">003 — Projects</div>
-            <h2 class="section-title">What I've Built</h2>
-            <div class="projects-list">
-                <div class="project-item">
-                    <div class="project-meta">
-                        <span class="project-num">01</span>
-                        <div class="project-tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
-                    </div>
-                    <div class="project-body">
-                        <h3 class="project-name">AI Translate</h3>
-                        <p class="project-desc">A real-time language translation tool with speech mode.</p>
-                        <a href="https://chatbot148.github.io/Translator/" target="_blank" class="project-link">View Live →</a>
+            <div class="section-header">
+                <span class="section-label">03 // Portfolio</span>
+                <h2 class="section-title">Featured Work</h2>
+            </div>
+
+            <div class="project-showcase">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-info">
+                        <span class="p-number">01</span>
+                        <h3 class="p-title">AI Translate</h3>
+                        <p class="p-description">A sophisticated real-time translation tool featuring advanced speech-to-text and voice output modes.</p>
+                        <div class="p-tags">
+                            <span>AI</span><span>Web</span><span>Speech</span>
+                        </div>
+                        <a href="https://chatbot148.github.io/Translator/" target="_blank" class="p-link">Experience Project →</a>
                     </div>
                 </div>
-                <div class="project-item">
-                    <div class="project-meta">
-                        <span class="project-num">02</span>
-                        <div class="project-tags"><span>Voice</span><span>Offline</span></div>
-                    </div>
-                    <div class="project-body">
-                        <h3 class="project-name">PhonicHive</h3>
-                        <p class="project-desc">A spelling bee platform using Deepgram Aura for high-quality voice.</p>
-                        <span class="project-link muted">Coming Soon ✦</span>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-info">
+                        <span class="p-number">02</span>
+                        <h3 class="p-title">PhonicHive</h3>
+                        <p class="p-description">A spelling bee platform integrated with high-fidelity voice synthesis for an immersive educational experience.</p>
+                        <div class="p-tags">
+                            <span>Education</span><span>Deepgram</span>
+                        </div>
+                        <span class="p-status">Development Phase</span>
                     </div>
                 </div>
             </div>
@@ -173,26 +200,31 @@
     <!-- Contact Section -->
     <section class="contact section-padding" id="contact">
         <div class="section-wrap">
-            <div class="section-label">004 — Contact</div>
-            <h2 class="section-title">Let's Build<span> Something.</span></h2>
-            <div class="contact-cards">
-                <a href="mailto:khaleelktn@gmail.com" class="contact-card">
-                    <span class="cc-label">Email</span>
-                    <span class="cc-value">khaleelktn@gmail.com</span>
-                </a>
-                <a href="tel:+2349066267266" class="contact-card">
-                    <span class="cc-label">Phone</span>
-                    <span class="cc-value">+234 906 626 7266</span>
-                </a>
+            <div class="contact-box">
+                <div class="section-label">04 // Connect</div>
+                <h2 class="contact-title">Let's build the <span class="text-gradient">future</span> together.</h2>
+                <div class="contact-links">
+                    <a href="mailto:khaleelktn@gmail.com" class="c-link">
+                        <span class="c-label">Email</span>
+                        <span class="c-main">khaleelktn@gmail.com</span>
+                    </a>
+                    <a href="tel:+2349066267266" class="c-link">
+                        <span class="c-label">Phone</span>
+                        <span class="c-main">+234 906 626 7266</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 </main>
 
 <footer class="footer">
-    <div class="footer-inner">
-        <span class="footer-logo">KA<span>.</span></span>
-        <span>© 2026 Khaleel Abdallah — All Rights Reserved</span>
+    <div class="footer-wrap">
+        <p class="copyright">© 2026 Khaleel Abdallah. Built with passion in Nigeria.</p>
+        <div class="footer-socials">
+            <a href="https://github.com/Chatbot148" target="_blank">GitHub</a>
+            <a href="#">LinkedIn</a>
+        </div>
     </div>
 </footer>
 
