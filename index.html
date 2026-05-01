@@ -3,165 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khaleel Abdallah - Portfolio</title>
+    <title>Khaleel Abdallah — Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portfolio.css">
-    <link rel="icon" type="image/png" href="Images/portfolio-logo.webp">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
 
-<header>
-    <div class="wrapper">
-        <div class="header-content" data-aos="fade-up" data-aos-duration="1500">
-            <img src="Images/me really.jpg" alt="Khaleel Abdallah" class="profile-img">
-            <h1>Khaleel Abdallah</h1>
-            <p>A Passionate Backend & Frontend Developer</p>
-            <a href="#contact" class="cta-btn">Get in Touch</a>
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+
+<!-- Particle canvas -->
+<canvas id="particles"></canvas>
+
+<!-- Nav -->
+<nav id="nav">
+    <div class="nav-inner">
+        <span class="nav-logo">KA<span class="dot">.</span></span>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+    <div class="hero-bg-text">DEV</div>
+    <div class="hero-content">
+        <div class="hero-tag reveal">Available for work</div>
+        <h1 class="hero-name reveal">
+            <span>Khaleel</span>
+            <span class="outline-text">Abdallah</span>
+        </h1>
+        <p class="hero-sub reveal">Backend & Frontend Developer · 14 yrs · Nigeria</p>
+        <div class="hero-cta reveal">
+            <a href="#projects" class="btn-primary">View My Work</a>
+            <a href="#contact" class="btn-ghost">Let's Talk</a>
         </div>
     </div>
-</header>
-
-<section class="about" id="about" data-aos="fade-up" data-aos-duration="1500">
-    <div class="wrapper">
-        <h2>About Me</h2>
-        <p>
-            👋 Hello, I'm Khaleel Abdallah!
-At just 14 years old, I’ve built a strong passion for coding and creating impactful digital projects. Despite my age, I’m skilled in 
-frontend, backend, mobile and software development, and I’m confident in my ability to handle professional challenges in these fields. I’ve worked on several 
-projects, including this personal portfolio website, a translator app, a spelling bee website that’s soon to be published, 
-and many other unpublished projects that reflect my growth as a developer. While I’m currently still a secondary school student in S.S.1, my dedication 
-to coding has pushed me beyond my years, allowing me to confidently apply for backend and frontend development roles. As a proud Muslim 
-and a determined individual, I never let obstacles hold me back. Being a sickle cell patient has taught me resilience, and I channel that 
-strength into everything I do. When I’m not coding, I enjoy playing football and taking on new challenges to grow personally and professionally.
-Feel free to connect with me at (+234) 0906 626 7266, or explore more about my work through my portfolio website. Fun fact: I might not like bananas, 
-but I absolutely love creating beautiful, functional code!
-        </p>
-        <p>
-            I'm proficient in backend and frontend development and I aim to contribute to the tech world by building innovative solutions.
-        </p>
+    <div class="hero-scroll-hint">
+        <span>scroll</span>
+        <div class="scroll-line"></div>
     </div>
-</section>
-
-<section class="skills" id="skills" data-aos="fade-up" data-aos-duration="1500">
-    <div class="wrapper">
-        <h2>Skills & Experience</h2>
-        <div class="skills-list">
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">Node.js</div>
-            <div class="skill">Python</div>
-            <div class="skill">PHP</div>
-            <div class="skill">Kotlin</div>
-            <div class="skill">Dart</div>
-        </div>
-        <h2>Mastered Developments</h2>
-        <div class="skills-list">
-            <div class="skill">Frontend development</div>
-            <div class="skill">Backend development</div>
-            <div class="skill">Web development</div>
-            <div class="skill">Mobile app development</div>
-            <div class="skill">Desktop app development</div>
-            <div class="skill">Database</div>
-        </div>
+    <div class="floating-card fc1 tilt-card">
+        <span class="fc-icon">⚡</span>
+        <span>HTML / CSS</span>
+    </div>
+    <div class="floating-card fc2 tilt-card">
+        <span class="fc-icon">🚀</span>
+        <span>Node.js</span>
+    </div>
+    <div class="floating-card fc3 tilt-card">
+        <span class="fc-icon">🐍</span>
+        <span>Python</span>
     </div>
 </section>
 
-<section class="projects" id="projects" data-aos="fade-up" data-aos-duration="1500">
+<!-- About -->
+<section id="about">
     <div class="wrapper">
-        <h2>My Projects</h2>
-        <div class="project" data-aos="fade-up" data-aos-duration="1500">
-            <h3>AI Translate</h3>
-            <p>A language translation tool I developed using HTML, CSS, and JavaScript, that
-               allows users to translate texts from one language to another, you can either
-               translate i text form in the normal mode <img src="Images/sample1.png" class="Images">
-               or by speech form in the conversation mode <img src="Images/sample2.png" class="Images">
-               thats if you want to speak to someone that speaks a different language.<a href="https://chatbot148.github.io/Translator/" target="_blank">View Project</a></p>
-        </div>
-        <div class="project" data-aos="fade-up" data-aos-duration="1500">
-            <h3>PhonicHive</h3>
-            <p>A spelling bee website built to improve users spelling ability and challenge users and even compete with others. Although 
-               it isn't yet published, here are some sneak peaks of it's features: it offers both online and offline mode, it has a 
-               timing feature where users can time theirselves to spell a word, it uses TTS(Text-To-Speech) Engine to output a word for 
-               the user to spell using, various voices for you to choose from. Wanna see a bit of what it looks like? Ok here are some 
-               sneak PICS😜😏 Do you get it, you get to peak a pic. Anyway: <img src="Images/Sample3.png" class="Images">
-               <img src="Images/sample4.png" class="Images"> and finally... <img src="Images/sample5.png" class="Images">.
-        </div>
-        <div class="project" data-aos="fade-up" data-aos-duration="1500">
-            <h3>Other</h3>
-            <p>Excluding all those projects, I make unpublished apps and Website that I build for practice, for fun, or even for my
-               personal use. I've never made a website or an app for someone tho, but I'm really looking towards doing so sooner or
-               later. I'm really looking forward to working with people or companies and making something amazing together.
-            </p>
+        <div class="section-label reveal">— About Me</div>
+        <div class="about-grid">
+            <div class="about-left reveal">
+                <div class="profile-frame tilt-card">
+                    <div class="profile-inner">
+                        <img src="Images/me really.jpg" alt="Khaleel Abdallah" class="profile-img" onerror="this.style.display='none'">
+                        <div class="profile-placeholder">KA</div>
+                        <div class="profile-glow"></div>
+                    </div>
+                    <div class="profile-badge">
+                        <span>🕌</span> Muslim · 14 yrs
+                    </div>
+                </div>
+            </div>
+            <div class="about-right">
+                <h2 class="reveal">I build things <br><span class="highlight">that matter.</span></h2>
+                <p class="reveal">At 14, I've already shipped multiple real-world projects. I'm proficient across the full stack — from pixel-perfect frontends to robust backends — and I'm just getting started.</p>
+                <p class="reveal">Having sickle cell disease taught me resilience. I channel that into every project: I don't quit until it works, and I don't ship until it's good.</p>
+                <div class="about-stats reveal">
+                    <div class="stat">
+                        <span class="stat-num" data-count="8">0</span>
+                        <span class="stat-label">Languages</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" data-count="5">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" data-count="2">0</span>
+                        <span class="stat-label">Years Coding</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="cv" id="cv" data-aos="fade-up" data-aos-duration="1500">
+<!-- Skills -->
+<section id="skills">
     <div class="wrapper">
-        <h2>My CV</h2>
-        <p>Khaleel Abdallah - Developer Profile</p>
-        <p>Age: 14</p>
-        <p>Location: Nigeria</p>
-
-        <h3>Skills</h3>
-
-        <p>Proficient in frontend and backend development, including: HTML, CSS, JavaScript Node.js, Python, PHP Kotlin, Dart
-        Strong experience in building dynamic and user-friendly web applications. Focused on clean code, responsive designs, and efficient 
-        performance optimization.</p>
-
-        <h3>Projects</h3>
-
-        <p>Translator App
-        Developed a web-based app for real-time translations in multiple languages.</p>
-
-        <p>Portfolio Website
-        Created a personal portfolio showcasing projects and skills.</p>
-
-        <p>Spelling Bee App (Coming Soon)</p>
-        <p>Designed to help users practice spelling interactively.</p>
-
-        <h3>Other Projects:</h3>
-
-        <p>Quiz App:</p>
-        <p>A dynamic web-based quiz application.</p>
-
-         <h3>Personal Traits</h3>
-         <p>A resilient, passionate, and curious developer with a drive to solve problems through technology.
-        Thrives in learning new tools, frameworks, and languages.
-        Actively builds on personal experiences, such as developing a potential Health Analytics Hub app for sickle cell patients.</p>
-
-        <h3>Additional Information</h3>
-        <p>Hobbies: Football, gaming (Call of Duty Mobile, Rocket League Sideswipe and console games etc.).</p>
-
-         <h3>Contact Information:</h3>
-         <p>Phone: (+234) 09066267266</p>
-        <p>Email: khaleel@example.com</p>
+        <div class="section-label reveal">— Skills</div>
+        <h2 class="reveal">My Toolkit</h2>
+        <div class="skills-grid">
+            <div class="skill-card tilt-card reveal" style="--delay: 0s">
+                <div class="skill-icon">🌐</div>
+                <h3>Frontend</h3>
+                <p>HTML · CSS · JavaScript</p>
+                <div class="skill-bar"><div class="skill-fill" style="--w: 95%"></div></div>
+            </div>
+            <div class="skill-card tilt-card reveal" style="--delay: 0.1s">
+                <div class="skill-icon">⚙️</div>
+                <h3>Backend</h3>
+                <p>Node.js · PHP · Python</p>
+                <div class="skill-bar"><div class="skill-fill" style="--w: 85%"></div></div>
+            </div>
+            <div class="skill-card tilt-card reveal" style="--delay: 0.2s">
+                <div class="skill-icon">📱</div>
+                <h3>Mobile</h3>
+                <p>Kotlin · Dart · Flutter</p>
+                <div class="skill-bar"><div class="skill-fill" style="--w: 75%"></div></div>
+            </div>
+            <div class="skill-card tilt-card reveal" style="--delay: 0.3s">
+                <div class="skill-icon">🗃️</div>
+                <h3>Database</h3>
+                <p>SQL · NoSQL</p>
+                <div class="skill-bar"><div class="skill-fill" style="--w: 70%"></div></div>
+            </div>
+            <div class="skill-card tilt-card reveal" style="--delay: 0.4s">
+                <div class="skill-icon">🖥️</div>
+                <h3>Desktop Apps</h3>
+                <p>Python · Electron</p>
+                <div class="skill-bar"><div class="skill-fill" style="--w: 65%"></div></div>
+            </div>
+            <div class="skill-card tilt-card reveal" style="--delay: 0.5s">
+                <div class="skill-icon">🤖</div>
+                <h3>AI / APIs</h3>
+                <p>Stable Diffusion · LLMs</p>
+                <div class="skill-bar"><div class="skill-fill" style="--w: 60%"></div></div>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="contact" id="contact" data-aos="fade-up" data-aos-duration="1500">
+<!-- Projects -->
+<section id="projects">
     <div class="wrapper">
-        <h2>Contact Me</h2>
-        <p>If you want to collaborate, chat, or if you even need a website or an app, feel free to reach out!</p>
-        <p>Phone: (+234) 0906 626 7266</p>
-        <p>Email: <a href="mailto:khaleelktn@gmail.com">khaleelktn@gmail.com</a></p>
+        <div class="section-label reveal">— Projects</div>
+        <h2 class="reveal">What I've Built</h2>
+        <div class="projects-grid">
+
+            <div class="project-card tilt-card reveal">
+                <div class="project-top">
+                    <span class="project-num">01</span>
+                    <div class="project-links">
+                        <a href="https://chatbot148.github.io/Translator/" target="_blank" class="project-link">↗</a>
+                    </div>
+                </div>
+                <div class="project-tag">Live · Web App</div>
+                <h3>AI Translate</h3>
+                <p>A real-time language translation web app with both text and speech (conversation) modes. Supports dozens of languages and uses TTS for output.</p>
+                <div class="project-tech">
+                    <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                </div>
+            </div>
+
+            <div class="project-card tilt-card reveal" style="--delay: 0.1s">
+                <div class="project-top">
+                    <span class="project-num">02</span>
+                    <div class="project-links">
+                        <span class="project-link soon">Soon</span>
+                    </div>
+                </div>
+                <div class="project-tag">Coming Soon · Web App</div>
+                <h3>PhonicHive</h3>
+                <p>A spelling bee platform with online/offline modes, timed challenges, TTS word output with multiple voices, and competitive multiplayer features.</p>
+                <div class="project-tech">
+                    <span>HTML</span><span>CSS</span><span>JS</span><span>TTS API</span>
+                </div>
+            </div>
+
+            <div class="project-card tilt-card reveal" style="--delay: 0.2s">
+                <div class="project-top">
+                    <span class="project-num">03</span>
+                </div>
+                <div class="project-tag">Concept · Mobile App</div>
+                <h3>Health Analytics Hub</h3>
+                <p>A sickle cell patient health analytics app inspired by personal experience. Aims to help patients track symptoms, crises, and health data intelligently.</p>
+                <div class="project-tech">
+                    <span>Kotlin</span><span>Dart</span><span>Python</span>
+                </div>
+            </div>
+
+            <div class="project-card tilt-card reveal" style="--delay: 0.3s">
+                <div class="project-top">
+                    <span class="project-num">04</span>
+                </div>
+                <div class="project-tag">In Progress · AI</div>
+                <h3>Stable Diffusion Generator</h3>
+                <p>An open-source AI image generation tool using Stable Diffusion libraries. Building a clean interface around powerful local AI image models.</p>
+                <div class="project-tech">
+                    <span>Python</span><span>Stable Diffusion</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CV -->
+<section id="cv">
+    <div class="wrapper">
+        <div class="section-label reveal">— Résumé</div>
+        <h2 class="reveal">My CV</h2>
+        <div class="cv-card tilt-card reveal">
+            <div class="cv-header">
+                <div>
+                    <h3>Khaleel Abdallah</h3>
+                    <p>Full-Stack Developer · Age 14 · Abuja, Nigeria</p>
+                </div>
+                <div class="cv-contact">
+                    <span>📞 (+234) 0906 626 7266</span>
+                    <span>✉️ khaleelktn@gmail.com</span>
+                </div>
+            </div>
+            <div class="cv-body">
+                <div class="cv-section">
+                    <h4>Languages & Technologies</h4>
+                    <div class="cv-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span>
+                        <span>Python</span><span>PHP</span><span>Kotlin</span><span>Dart</span>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <h4>Key Projects</h4>
+                    <ul>
+                        <li><strong>AI Translate</strong> — Live web translation app with speech mode</li>
+                        <li><strong>PhonicHive</strong> — Spelling bee platform (launching soon)</li>
+                        <li><strong>Portfolio Website</strong> — Personal showcase of skills & work</li>
+                        <li><strong>Quiz App</strong> — Dynamic web-based quiz application</li>
+                    </ul>
+                </div>
+                <div class="cv-section">
+                    <h4>Personal Traits</h4>
+                    <p>Resilient · Self-taught · Problem-solver · Fast learner · Detail-oriented</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <div class="wrapper">
+        <div class="section-label reveal">— Contact</div>
+        <div class="contact-inner">
+            <h2 class="reveal">Let's build something <span class="highlight">amazing.</span></h2>
+            <p class="reveal">Open to collaborations, freelance projects, or just a good tech conversation.</p>
+            <div class="contact-links reveal">
+                <a href="tel:+2340906626766" class="contact-card tilt-card">
+                    <span class="cc-icon">📞</span>
+                    <div>
+                        <span class="cc-label">Phone</span>
+                        <span class="cc-val">(+234) 0906 626 7266</span>
+                    </div>
+                </a>
+                <a href="mailto:khaleelktn@gmail.com" class="contact-card tilt-card">
+                    <span class="cc-icon">✉️</span>
+                    <div>
+                        <span class="cc-label">Email</span>
+                        <span class="cc-val">khaleelktn@gmail.com</span>
+                    </div>
+                </a>
+                <a href="https://chatbot148.github.io/Khaleel-Portfolio/" target="_blank" class="contact-card tilt-card">
+                    <span class="cc-icon">🌐</span>
+                    <div>
+                        <span class="cc-label">Portfolio</span>
+                        <span class="cc-val">View Live Site</span>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
 <footer>
-    <p>© 2025 Khaleel Abdallah - All Rights Reserved</p>
+    <div class="footer-inner">
+        <span class="nav-logo">KA<span class="dot">.</span></span>
+        <p>© 2025 Khaleel Abdallah · Designed & Built by me</p>
+        <p class="footer-sub">Visca Barça 🔵🔴</p>
+    </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-    AOS.init({
-        duration: 1000, // Animation duration
-        easing: 'ease-out', // Easing for smooth transitions
-        once: true // Trigger the animation only once as the user scrolls
-    });
-</script>
-
+<script src="portfolio.js"></script>
 </body>
 </html>
