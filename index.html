@@ -3,135 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khaleel | Full-Stack Developer</title>
+    <title>Khaleel Abdallah — Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
 
-<!-- 3D Environment Layer -->
-<div id="canvas-container">
-    <canvas id="three-canvas"></canvas>
-</div>
+<!-- Custom Cursor (desktop only) -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
 
-<!-- Custom Interactive Cursor -->
-<div class="cursor-dot"></div>
-<div class="cursor-outline"></div>
-
-<nav class="glass-nav">
-    <div class="nav-content">
-        <div class="logo">K<span>H</span></div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">Bio</a>
-            <a href="#projects">Work</a>
-            <a href="#contact" class="nav-cta">Let's Talk</a>
-        </div>
+<!-- Floating Nav -->
+<nav class="nav" id="nav">
+    <div class="nav-logo">KA<span>.</span></div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger">
+        <span></span><span></span><span></span>
     </div>
 </nav>
 
-<main>
-    <!-- Hero: The Digital Horizon -->
-    <section id="home" class="hero-v2">
-        <div class="hero-main">
-            <div class="reveal-box">
-                <span class="eyebrow">Digital Architect // 14 Years Old</span>
-            </div>
-            <h1 class="glitch-title" data-text="KHALEEL ABDALLAH">KHALEEL ABDALLAH</h1>
-            <p class="hero-description">
-                Building low-latency AI ecosystems and high-performance web applications with 
-                <span class="text-highlight">React TSX</span> and <span class="text-highlight">Node.js</span>.
-            </p>
-            <div class="hero-actions">
-                <a href="#projects" class="magnetic-btn">Explore Projects</a>
-                <div class="scroll-indicator">
-                    <div class="mouse"></div>
-                </div>
-            </div>
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero" id="hero">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-bg-text">DEV</div>
+
+    <div class="hero-content">
+        <div class="hero-tag">16-year-old developer</div>
+        <h1 class="hero-title">
+            <span class="line">Khaleel</span>
+            <span class="line accent-line">Abdallah</span>
+        </h1>
+        <p class="hero-sub">Backend &amp; Frontend Developer &nbsp;·&nbsp; Nigeria</p>
+        <div class="hero-cta">
+            <a href="#projects" class="btn-primary">View My Work</a>
+            <a href="#contact" class="btn-ghost">Get In Touch</a>
         </div>
-    </section>
+    </div>
 
-    <!-- Bio: The Resilience Section -->
-    <section id="about" class="bio-v2">
-        <div class="container">
-            <div class="bio-grid">
-                <div class="bio-visual">
-                    <div class="image-parallax-wrap">
-                        <img src="Images/me really.jpg" alt="Khaleel" class="main-img">
-                        <div class="floating-stat">
-                            <span class="stat-v">2+</span>
-                            <span class="stat-l">Years of Code</span>
-                        </div>
+    <div class="hero-scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+    </div>
+
+    <!-- 3D Floating Tech Cards -->
+    <div class="floating-cards">
+        <div class="float-card fc1"><span class="dot"></span>Node.js</div>
+        <div class="float-card fc2"><span class="dot"></span>Python</div>
+        <div class="float-card fc3"><span class="dot"></span>Kotlin</div>
+        <div class="float-card fc4"><span class="dot"></span>HTML / CSS</div>
+        <div class="float-card fc5"><span class="dot"></span>Dart</div>
+    </div>
+</section>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section class="about" id="about">
+    <div class="section-wrap">
+        <div class="section-label reveal-on-scroll">001 — About</div>
+        <div class="about-grid">
+            <div class="about-left reveal-on-scroll">
+                <div class="about-photo-wrap">
+                    <div class="photo-frame">
+                        <img src="Images/Me.png" alt="Khaleel Abdallah" class="about-photo">
+                        <div class="photo-accent"></div>
                     </div>
-                </div>
-                <div class="bio-content">
-                    <h2 class="sub-heading">Resilience in Every Pixel</h2>
-                    <p>
-                        Based in Abuja, Nigeria, I specialize in full-stack development. 
-                        Navigating life with sickle cell has forged a mindset of efficiency and 
-                        unbreakable resilience—traits I apply to debugging complex backends and 
-                        achieving 0-latency AI interactions.
-                    </p>
-                    <div class="interest-pills">
-                        <span>Football</span>
-                        <span>CODM Competitive</span>
-                        <span>AI Synthesis</span>
-                    </div>
+                    <div class="photo-tag">Available for work ✦</div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects: The Showcase -->
-    <section id="projects" class="work-v2">
-        <div class="container">
-            <div class="work-header">
-                <h2 class="section-num">01.</h2>
-                <h2 class="section-title">Selected Works</h2>
-            </div>
-            
-            <div class="project-stack">
-                <div class="p-card" data-tilt>
-                    <div class="p-glow"></div>
-                    <div class="p-content">
-                        <h3>AI Translate</h3>
-                        <p>High-fidelity speech synthesis and translation.</p>
-                        <div class="p-tech"><span>Mistral AI</span><span>Deepgram</span></div>
-                        <a href="https://chatbot148.github.io/Translator/" class="p-link">View Project</a>
+            <div class="about-right">
+                <h2 class="section-title reveal-on-scroll">Who Am I?</h2>
+                <p class="about-text reveal-on-scroll">
+                    👋 At just 13, I started building a serious passion for creating digital experiences that matter. I'm a Software Engineer based in Nigeria — proficient across frontend, backend, mobile, and desktop.
+                </p>
+                <p class="about-text reveal-on-scroll" style="transition-delay:0.1s">
+                    Being a sickle cell patient has taught me resilience, and I channel that strength into every line of code I write. When I'm not at the keyboard, I'm on the pitch playing football or deep in Call of Duty Mobile.
+                </p>
+                <div class="about-stats reveal-on-scroll" style="transition-delay:0.2s">
+                    <div class="stat">
+                        <span class="stat-num" data-count="8">0</span>
+                        <span class="stat-label">Languages</span>
                     </div>
-                </div>
-
-                <div class="p-card" data-tilt>
-                    <div class="p-glow"></div>
-                    <div class="p-content">
-                        <h3>PhonicHive</h3>
-                        <p>Educational voice-driven spelling platform.</p>
-                        <div class="p-tech"><span>Node.js</span><span>Aura TTS</span></div>
-                        <span class="p-status">In Development</span>
+                    <div class="stat">
+                        <span class="stat-num" data-count="5">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" data-count="2">0</span>
+                        <span class="stat-label">Years Coding</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Contact: The Final Move -->
-    <section id="contact" class="footer-v2">
-        <div class="container">
-            <h2 class="big-text">Ready to <br>start the game?</h2>
-            <div class="contact-methods">
-                <a href="mailto:khaleelktn@gmail.com" class="c-box">
-                    <span class="c-type">Email</span>
-                    <span class="c-val">khaleelktn@gmail.com</span>
-                </a>
-                <a href="tel:+2349066267266" class="c-box">
-                    <span class="c-type">Phone</span>
-                    <span class="c-val">+234 906 626 7266</span>
-                </a>
+<!-- ══════════════ SKILLS ══════════════ -->
+<section class="skills" id="skills">
+    <div class="section-wrap">
+        <div class="section-label reveal-on-scroll">002 — Skills</div>
+        <h2 class="section-title reveal-on-scroll">What I Know</h2>
+
+        <div class="skills-marquee-wrap">
+            <div class="marquee-track">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span>
+                <span>Python</span><span>PHP</span><span>Kotlin</span><span>Dart</span>
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span>
+                <span>Python</span><span>PHP</span><span>Kotlin</span><span>Dart</span>
             </div>
         </div>
-    </section>
-</main>
+
+        <div class="skills-grid">
+            <div class="skill-card reveal-on-scroll">
+                <span class="skill-icon">🌐</span>
+                <h3>Frontend</h3>
+                <p>HTML, CSS, JavaScript — pixel-perfect, responsive, interactive UIs.</p>
+            </div>
+            <div class="skill-card reveal-on-scroll" style="transition-delay:0.08s">
+                <span class="skill-icon">⚙️</span>
+                <h3>Backend</h3>
+                <p>Node.js, Python, PHP — APIs, servers, databases, logic.</p>
+            </div>
+            <div class="skill-card reveal-on-scroll" style="transition-delay:0.16s">
+                <span class="skill-icon">📱</span>
+                <h3>Apps</h3>
+                <p>Kotlin & Dart — native Android and cross-platform Flutter apps.</p>
+            </div>
+            <div class="skill-card reveal-on-scroll" style="transition-delay:0.24s">
+                <span class="skill-icon">🗄️</span>
+                <h3>Database</h3>
+                <p>Structuring, querying, and managing data for real-world applications.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ PROJECTS ══════════════ -->
+<section class="projects" id="projects">
+    <div class="section-wrap">
+        <div class="section-label reveal-on-scroll">003 — Projects</div>
+        <h2 class="section-title reveal-on-scroll">What I've Built</h2>
+
+        <div class="projects-list">
+            <div class="project-item reveal-on-scroll">
+                <div class="project-meta">
+                    <span class="project-num">01</span>
+                    <div class="project-tags">
+                        <span>HTML</span><span>CSS</span><span>JS</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-name">AI Translate</h3>
+                    <p class="project-desc">A real-time language translation tool. Supports text mode and conversation (speech) mode — perfect for communicating across language barriers.</p>
+                    <a href="https://chatbot148.github.io/Translator/" target="_blank" class="project-link">View Live →</a>
+                </div>
+                <div class="project-arrow">↗</div>
+                <div class="project-glow"></div>
+            </div>
+
+            <div class="project-item reveal-on-scroll" style="transition-delay:0.08s">
+                <div class="project-meta">
+                    <span class="project-num">02</span>
+                    <div class="project-tags">
+                        <span>Web App</span><span>TTS</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-name">PhonicHive</h3>
+                    <p class="project-desc">A spelling bee platform with online/offline modes, TTS engine, timing features, and multiple voice options. Coming soon.</p>
+                    <span class="project-link muted">Coming Soon ✦</span>
+                </div>
+                <div class="project-arrow">✦</div>
+                <div class="project-glow"></div>
+            </div>
+
+            <div class="project-item reveal-on-scroll" style="transition-delay:0.16s">
+                <div class="project-meta">
+                    <span class="project-num">03</span>
+                    <div class="project-tags">
+                        <span>Health Tech</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-name">Health Analytics Hub</h3>
+                    <p class="project-desc">An app to help sickle cell patients track and understand their health data. Inspired by personal lived experience.</p>
+                    <span class="project-link muted">In Development ✦</span>
+                </div>
+                <div class="project-arrow">✦</div>
+                <div class="project-glow"></div>
+            </div>
+
+            <div class="project-item reveal-on-scroll" style="transition-delay:0.24s">
+                <div class="project-meta">
+                    <span class="project-num">04</span>
+                    <div class="project-tags">
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-name">Quiz App</h3>
+                    <p class="project-desc">A dynamic, interactive quiz application for the web. Fast, clean, and built for learning.</p>
+                    <span class="project-link muted">Unpublished ✦</span>
+                </div>
+                <div class="project-arrow">✦</div>
+                <div class="project-glow"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section class="contact" id="contact">
+    <div class="section-wrap">
+        <div class="section-label reveal-on-scroll">004 — Contact</div>
+        <h2 class="section-title contact-title reveal-on-scroll">Let's Build<br><span>Something.</span></h2>
+        <p class="contact-sub reveal-on-scroll">Got a project? Want to collaborate? Reach out — I'm always up for something exciting.</p>
+
+        <div class="contact-cards">
+            <a href="mailto:khaleelktn@gmail.com" class="contact-card reveal-on-scroll">
+                <div class="cc-icon">✉</div>
+                <div class="cc-label">Email</div>
+                <div class="cc-value">khaleelktn@gmail.com</div>
+            </a>
+            <a href="tel:+2349066267266" class="contact-card reveal-on-scroll" style="transition-delay:0.1s">
+                <div class="cc-icon">☎</div>
+                <div class="cc-label">Phone</div>
+                <div class="cc-value">(+234) 0906 626 7266</div>
+            </a>
+            <a href="https://www.linkedin.com/in/khaleel-abdallah-426205281/" target="_blank" class="contact-card reveal-on-scroll" style="transition-delay:0.2s">
+                <div class="cc-icon">🔗</div>
+                <div class="cc-label">LinkedIn</div>
+                <div class="cc-value">View Site</div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <span class="footer-logo">KA<span>.</span></span>
+        <span>© 2025 Khaleel Abdallah — All Rights Reserved</span>
+        <span>Built with 🔥 & code</span>
+    </div>
+</footer>
 
 <script src="portfolio.js"></script>
 </body>
