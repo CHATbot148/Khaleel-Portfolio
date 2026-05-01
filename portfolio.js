@@ -1,194 +1,140 @@
-// ===========================
-// CUSTOM CURSOR
-// ===========================
+// 1. Custom Cursor Functionality
 const cursor = document.getElementById('cursor');
 const trail = document.getElementById('cursorTrail');
-let mx = 0, my = 0, tx = 0, ty = 0;
 
-document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
-});
+if (window.innerWidth > 768) {
+    document.addEventListener('mousemove', (e) => {
+        const { clientX: x, clientY: y } = e;
+        
+        // Main dot
+        cursor.style.left = `${x}px`;
+        cursor.style.top = `${y}px`;
+        
+        // Trailing circle (smooth follow)
+        trail.animate({
+            left: `${x}px`,
+            top: `${y}px`
+        }, { duration: 500, fill: "forwards" });
+    });
 
-function animateTrail() {
-    tx += (mx - tx) * 0.15;
-    ty += (my - ty) * 0.15;
-    trail.style.left = tx + 'px';
-    trail.style.top = ty + 'px';
-    requestAnimationFrame(animateTrail);
+    // Hover effect for links
+    const interactiveElements = document.querySelectorAll('a, button, .skill-category');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(4)';
+            cursor.style.backgroundColor = 'transparent';
+            cursor.style.border = '1px solid var(--accent)';
+            trail.style.opacity = '0';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursor.style.backgroundColor = 'var(--accent)';
+            cursor.style.border = 'none';
+            trail.style.opacity = '0.5';
+        });
+    });
 }
-animateTrail();
 
-document.querySelectorAll('a, button, .skill-card, .project-item, .contact-card').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        cursor.style.width = '24px';
-        cursor.style.height = '24px';
-        trail.style.width = '56px';
-        trail.style.height = '56px';
-    });
-    el.addEventListener('mouseleave', () => {
-        cursor.style.width = '12px';
-        cursor.style.height = '12px';
-        trail.style.width = '36px';
-        trail.style.height = '36px';
+// 2. Parallax Floating Cards
+document.addEventListener('mousemove', (e) => {
+    const cards = document.querySelectorAll('.float-card');
+    const x = (window.innerWidth - e.pageX * 2) / 100;
+    const y = (window.innerHeight - e.pageY * 2) / 100;
+
+    cards.forEach(card => {
+        const speed = card.getAttribute('data-speed');
+        card.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
     });
 });
 
-// ===========================
-// NAV SCROLL EFFECT
-// ===========================
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-// ===========================
-// HERO CANVAS — PARTICLE NETWORK
-// ===========================
+// 3. Hero Canvas Animation (Neural Network effect)
 const canvas = document.getElementById('heroCanvas');
 const ctx = canvas.getContext('2d');
-let W, H, particles = [];
-const PARTICLE_COUNT = 60;
-const CONNECTION_DIST = 140;
+let particles = [];
+const particleCount = 60;
 
-function resize() {
-    W = canvas.width = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
+function initCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 }
-resize();
-window.addEventListener('resize', () => { resize(); initParticles(); });
 
 class Particle {
-    constructor() { this.reset(); }
-    reset() {
-        this.x = Math.random() * W;
-        this.y = Math.random() * H;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.r = Math.random() * 1.5 + 0.5;
-        this.opacity = Math.random() * 0.5 + 0.1;
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
     }
     update() {
-        this.x += this.vx; this.y += this.vy;
-        if (this.x < 0 || this.x > W) this.vx *= -1;
-        if (this.y < 0 || this.y > H) this.vy *= -1;
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
     }
     draw() {
+        ctx.fillStyle = 'rgba(0, 255, 135, 0.4)';
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 255, 135, ${this.opacity})`;
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
     }
 }
 
-function initParticles() {
-    particles = Array.from({ length: PARTICLE_COUNT }, () => new Particle());
+function createParticles() {
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
 }
-initParticles();
 
-let mouseX = W / 2, mouseY = H / 2;
-canvas.addEventListener('mousemove', e => {
-    const rect = canvas.getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
-});
-
-function drawParticles() {
-    ctx.clearRect(0, 0, W, H);
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
+        particles[i].update();
+        particles[i].draw();
+        
+        // Connect lines
+        for (let j = i; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
             const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx*dx + dy*dy);
-            if (dist < CONNECTION_DIST) {
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 150) {
+                ctx.strokeStyle = `rgba(0, 255, 135, ${0.15 - distance/1000})`;
+                ctx.lineWidth = 0.5;
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
                 ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(0, 255, 135, ${(1 - dist/CONNECTION_DIST)*0.15})`;
-                ctx.lineWidth = 0.5;
                 ctx.stroke();
             }
         }
-        const dx = particles[i].x - mouseX;
-        const dy = particles[i].y - mouseY;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < CONNECTION_DIST * 1.5) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(mouseX, mouseY);
-            ctx.strokeStyle = `rgba(0, 212, 255, ${(1 - dist/(CONNECTION_DIST*1.5))*0.3})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-        }
     }
-    particles.forEach(p => { p.update(); p.draw(); });
-    requestAnimationFrame(drawParticles);
+    requestAnimationFrame(animateParticles);
 }
-drawParticles();
 
-// ===========================
-// SCROLL REVEAL
-// ===========================
-const revealEls = document.querySelectorAll('.section-label, .section-title, .about-text, .about-stats, .skill-card, .project-item, .contact-title, .contact-sub, .contact-card');
-revealEls.forEach(el => el.classList.add('reveal'));
+window.addEventListener('resize', initCanvas);
+initCanvas();
+createParticles();
+animateParticles();
+
+// 4. Scroll Reveal Logic (Simple implementation)
+const observerOptions = {
+    threshold: 0.1
+};
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            setTimeout(() => entry.target.classList.add('visible'), 80);
-            observer.unobserve(entry.target);
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
         }
     });
-}, { threshold: 0.1 });
-revealEls.forEach(el => observer.observe(el));
+}, observerOptions);
 
-document.querySelectorAll('.skills-grid, .projects-list, .contact-cards').forEach(container => {
-    container.querySelectorAll(':scope > *').forEach((child, i) => {
-        child.style.transitionDelay = `${i * 0.08}s`;
-    });
-});
-
-// ===========================
-// COUNT-UP ANIMATION
-// ===========================
-const countEls = document.querySelectorAll('.stat-num[data-count]');
-const countObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const el = entry.target;
-            const target = parseInt(el.getAttribute('data-count'));
-            let current = 0;
-            const step = target / (1200 / 16);
-            const update = () => {
-                current = Math.min(current + step, target);
-                el.textContent = Math.floor(current) + '+';
-                if (current < target) requestAnimationFrame(update);
-            };
-            update();
-            countObserver.unobserve(el);
-        }
-    });
-}, { threshold: 0.5 });
-countEls.forEach(el => countObserver.observe(el));
-
-// ===========================
-// SKILL CARD MOUSE GLOW + 3D TILT
-// ===========================
-document.querySelectorAll('.skill-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty('--mx', x + '%');
-        card.style.setProperty('--my', y + '%');
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        const dx = (e.clientX - cx) / (rect.width / 2);
-        const dy = (e.clientY - cy) / (rect.height / 2);
-        card.style.transform = `perspective(600px) rotateY(${dx*8}deg) rotateX(${-dy*8}deg) translateY(-6px)`;
-    });
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-    });
+document.querySelectorAll('section').forEach(section => {
+    section.style.opacity = "0";
+    section.style.transform = "translateY(50px)";
+    section.style.transition = "all 1s cubic-bezier(0.16, 1, 0.3, 1)";
+    observer.observe(section);
 });
